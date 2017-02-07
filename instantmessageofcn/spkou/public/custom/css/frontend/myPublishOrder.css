@@ -1,0 +1,318 @@
+.order-status-menu{
+    padding-top: 10px;
+}
+
+.order-status-menu li{
+    display: inline;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 14px;
+}
+
+.order-status-menu li.active {
+    border-bottom: 5px solid #008fd5;
+}
+
+/*
+    Order info
+*/
+.portlet.box > .portlet-title{
+    color: #000;
+}
+
+.gray-box{
+    background-color: #f5f5f5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.complete-time, .order-id{
+    padding-left: 25px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
+.column{
+    padding-top: 10px;
+    padding-left: 35px;
+}
+
+.new-order a:hover{
+    text-decoration: none;
+}
+
+.link{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.location{
+    color: #999999;
+}
+
+.delete-info{
+    padding-top: 10px;
+}
+
+/*
+    tailor info
+*/
+.tailor-profile{
+    padding-top:10px;
+    padding-left: 35px;
+    padding-right: 15px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.tailor-profile .gray-box{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.tailor-profile ul{
+    padding: 0px;
+    margin-top: 10px;
+}
+
+.tailor-profile li{
+    display: inline;
+    list-style: none;
+    background-color: #659be0;
+    color: #ffffff;
+    padding: 5px;
+}
+
+.tailor-profile .profile-userpic img{
+    width: 100px;
+}
+
+.gray01 {
+    background-color: #c2cad8;
+}
+
+.btn.gray01:hover{
+    background-color: #b8c0cd;
+}
+
+.link.details{
+    padding-right: 15px;
+}
+
+/*Modal Evaluation Order*/
+.modal-dialog.evaluation-order,
+.modal-dialog.tailor-detail
+{
+    width: 1100px;
+}
+
+.modal-dialog .tailor-profile{
+    padding-left: 0px;
+}
+
+.modal-dialog.evaluation-order .modal-footer,
+.modal-dialog.tailor-detail .modal-footer
+{
+    text-align: center;
+}
+
+.btn-evaluation{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.user-info{
+    padding-top: 5px;
+}
+
+.comment-tab{
+    padding: 15px;
+}
+
+.btn-complain{
+    background-color: #dae0e6;
+}
+
+.img-auth{
+    float: none !important;
+}
+/*Rating*/
+.rate-label{
+    padding-top: 5px;
+}
+
+.rating-16 {
+    font-size: 16px;
+}
+
+.rating-12 {
+    font-size: 12px;
+}
+
+.star-caption{
+    font-size: 12px;
+    color: #ffb344;
+    background-color: #fff;
+    font-weight: 900;
+}
+
+.rating-container .caption{
+    padding-top: 8px;
+}
+
+.rating-container .filled-stars{
+    color: #ff9800;
+}
+
+/*Modal Tailor Detail*/
+.modal-dialog .portlet-body{
+    padding: 15px;
+}
+
+.div-ttl-comment{
+    padding-top: 10px;
+}
+.ttl-comment{
+    border-bottom: 5px solid #008fd5;
+    padding-bottom: 15px;
+}
+
+.sect-choose,
+.sect-user-comment{
+    padding: 15px;
+}
+
+.hr-line{
+    margin: 0;
+}
+
+.rate-value{
+    font-size: 60px;
+    color: #659be0;
+    padding-left: 30px;
+    font-weight: 900;
+}
+
+.ttl-eval, .no-vote{
+    color: #659be0;
+    font-weight: 900;
+}
+
+.sect-star02 .star{
+    color: #cccccc;
+}
+
+.no-star{
+    color: #959595;
+}
+
+.sect-star01 {
+    padding-top: 20px;
+}
+
+.sect-star02,
+.sect-rate-histogram{
+    padding-top: 25px;
+    padding-left: 30px;
+}
+
+/*Rating Histogram*/
+.histo {
+    float: left;
+    width: 80%;
+    font-size: 8px;
+}
+
+.histo-star {
+    float: left;
+}
+
+.histo-rate {
+    width: 100%;
+    display: block;
+    clear: both;
+}
+
+.bar-block {
+    margin-left: 5px;
+    color: black;
+    display: block;
+    float: left;
+    width: 75%;
+    position: relative;
+}
+
+.bar {
+    padding: 5px;
+    display: block;
+}
+
+#bar-five {
+    width: 0;
+    background-color: #eff5fc;
+}
+
+#bar-four {
+    width: 0;
+    background-color: #e0ebf9;
+}
+
+#bar-three {
+    width: 0;
+    background-color: #c1d7f3;
+}
+
+#bar-two {
+    width: 0;
+    background-color: #a3c3ec;
+}
+
+#bar-one {
+    width: 0;
+    background-color: #659be0;
+}
+
+/*User Comment*/
+.user-comment .user-rate td{
+    padding-top: 10px;
+}
+
+.user-comment .order-id{
+    text-align: center;
+    padding-top: 10px;
+}
+
+.user-comment .post-datetime{
+    text-align: right;
+    padding-top: 10px;
+}
+
+.user-comment .profile-userpic img{
+    width: 90%;
+}
+
+.user-comment p {
+    line-height: 30px;
+}
+
+/*Modal Arrow*/
+.right-arrow{
+    /*margin-right: -40px;*/
+    margin-right: -90px;
+}
+
+.left-arrow{
+    margin-left: -30px;
+}
+
+.right-arrow a,
+.left-arrow a{
+    font-size: 80px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.profile-image.next-tailor{
+    width: 50%;
+    padding-top: 35px;
+}

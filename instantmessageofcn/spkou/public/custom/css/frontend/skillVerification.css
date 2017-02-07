@@ -1,0 +1,30 @@
+.form-control{
+    border-radius: 4px !important;
+}
+
+.input-group-btn:last-child > .btn{
+    margin-left: 0px !important;
+}
+
+.button-action{
+    padding-left: 20px;
+}
+
+/*
+    tag
+*/
+.bootstrap-tagsinput{
+    border: 0px solid #ccc;
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0,0.075);
+    line-height: 42px;
+    padding: 4px 0px;
+}
+
+.label{
+    font-size: 12px;
+    padding: 10px;
+}
+
+.add-tag, .save{
+    padding: 0px;
+}

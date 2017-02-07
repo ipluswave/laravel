@@ -1,0 +1,61 @@
+.balance{
+    font-size: 40px;
+    font-weight: 900 !important;
+}
+
+.action{
+    padding-top: 15px;
+}
+
+.action .btn{
+    margin-right: 5px;
+}
+
+.gongshang{
+    background-color: #c54956;
+}
+
+.jianshe{
+    background-color: #5a6cb6;
+}
+
+.nongye{
+    background-color: #34aa96;
+}
+
+.add-new{
+    background-color: #f5f5f5;
+    color: #000000;
+}
+
+.account{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.account-no{
+    font-size: 30px;
+}
+
+.div-action{
+    padding-top: 5px;
+}
+
+.div-action a:hover{
+    text-decoration: none;
+}
+
+/*
+* Custom Add New Account Modal
+*/
+.modal-footer{
+    background-color: #f5f5f5;
+}
+
+.help-block{
+    color: #327ad5;
+    font-size: 25px;
+}

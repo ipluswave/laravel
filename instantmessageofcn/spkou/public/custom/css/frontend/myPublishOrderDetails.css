@@ -1,0 +1,205 @@
+/*
+    Order info
+*/
+.gray-box{
+    background-color: #f5f5f5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.complete-time, .order-id, .tailor-profile{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.column{
+    padding-top: 10px;
+    padding-left: 35px;
+}
+
+.new-order a:hover{
+    text-decoration: none;
+}
+
+.link{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.location{
+    color: #999999;
+}
+
+/*
+    tailor info
+*/
+.tailor-profile{
+    padding-left: 35px;
+    margin-top: 35px;
+}
+
+.tailor-profile .gray-box{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.tailor-profile ul{
+    padding: 0px;
+    margin-top: 10px;
+}
+
+.tailor-profile li{
+    display: inline;
+    list-style: none;
+    background-color: #659be0;
+    color: #ffffff;
+    padding: 5px;
+}
+
+.tailor-profile .profile-userpic img{
+    width: 100px;
+}
+
+.gray01 {
+    background-color: #c2cad8;
+}
+
+.btn.gray01:hover{
+    background-color: #b8c0cd;
+}
+
+/*
+    chat
+*/
+.portlet.box.gray-color {
+    border: 1px solid #f7f7f7;
+    border-top: 0;
+}
+
+.portlet.gray-color{
+    background-color: #f5f5f5;
+}
+
+.portlet.box > .portlet-title{
+    color: #000000;
+}
+
+.control-label {
+    text-align: left!important;
+    padding-left: 40px;
+}
+
+.chats{
+    padding: 10px;
+}
+
+/*
+    File upload
+*/
+
+.file-upload{
+
+}
+
+.file-upload .fa.fa-file-o{
+    font-size: 100px;
+    color: #f3f5f8;
+    /*padding-left: 120px;*/
+    padding-top: 150px;
+    padding-bottom: 10px;
+}
+
+.btn.blue.upload{
+    padding-left:75px;
+    padding-right:75px;
+}
+
+.no-file{
+    padding-top: 20px;
+    color: #cccccc;
+    padding-bottom: 40px;
+}
+
+.btn-helpdesk, .btn-extra-size{
+    width: 200px;
+    margin-top: 5px;
+}
+
+.file-upload .form-horizontal .form-group {
+    margin-left: 0 !important;
+}
+
+.file-list{
+    padding-left: 20px;
+}
+
+.file-list li{
+    list-style: none;
+    width: 100%;
+    display: table;
+    border-bottom: 1px solid #e7ecf1;
+}
+
+.file-list li:hover{
+    background-color: #ebf8ff;
+}
+
+.file-list li .download-file{
+    display: none;
+}
+
+.file-list li:hover .download-file{
+    display: block;
+}
+
+.file-logo{
+    padding: 10px;
+}
+
+.file-info{
+    margin-top: 16px;
+}
+
+.size-datetime{
+    color: #d0d0d0;
+}
+
+.file-list a{
+    text-decoration: none;
+    color: #008fd5;
+}
+
+.file-upload .form-horizontal .form-group{
+    margin-right: 0px;
+}
+
+/*
+* Custom Add New Account Modal
+*/
+.modal-footer{
+    background-color: #f5f5f5;
+}
+
+.label-price-size{
+    padding-right: 10px;
+}
+
+.price-size{
+    color: red;
+}
+
+.size{
+    padding-left: 0px;
+}
+
+.form-control{
+    border-radius: 4px !important;
+}
+
+.input-group-btn:last-child > .btn{
+    margin-left: 0px !important;
+}
+
+.button-action{
+    padding-left: 20px;
+}

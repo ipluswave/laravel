@@ -1,0 +1,19 @@
+.page-container{
+    background: url(/images/background.png) no-repeat;
+    background-size: 1400px 859px;
+}
+
+.nav.navbar-nav.navbar-right{
+    padding-top: 25px;
+    padding-right: 10px;
+}
+
+.navbar-nav > li > a{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+}

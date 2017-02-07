@@ -1,0 +1,161 @@
+/*
+    Search option
+*/
+.portlet.box.grey01{
+    border: 0px solid #fff;;
+    background-color: #f5f5f5;
+}
+
+.portlet.box > .portlet-title{
+    color: #000;
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+.show-option-info, .ordering-option-info {
+    list-style: none;
+    padding-left: 14px;
+}
+
+.show-option-info li, .ordering-option-info li{
+    padding:5px 0 5px 0;
+    color: #cfcfcf;
+}
+
+.show-option-info li.active,
+.ordering-option-info li.active,
+.show-option-info li:hover,
+.ordering-option-info li:hover{
+    color: #0190d6;
+}
+
+.portlet{
+    margin-bottom: 0px;
+}
+
+.selection-word{
+    background-color: #659be1;
+    color: white;
+}
+
+.alert {
+    padding: 10px 30px 10px 10px;
+}
+
+/*
+    tag
+*/
+
+.bootstrap-tagsinput{
+    border: 0px solid #ccc;
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0,0.075);
+    line-height: 42px;
+}
+
+.label{
+    font-size: 12px;
+    padding: 10px;
+}
+
+/*
+    Order
+*/
+.column {
+    padding-top: 20px;
+    padding-left: 30px;
+}
+
+.div-title{
+    padding-top: 5px;
+}
+
+.div-title.price{
+    padding-top: 2px;
+    font-size: 18px;
+}
+
+.tailor-order.portlet {
+    margin-bottom: 20px;
+}
+
+.tailor-order.portlet.box > .portlet-title {
+    background-color: #fff;
+    font-weight: bold;
+    padding: 30px 30px 0px 30px;
+}
+
+.tailor-order.portlet.box > .portlet-body {
+    padding: 0px 15px 15px 15px;
+}
+
+.portlet.box > .portlet-footer {
+    background-color: #f5f5f5;
+    color: #9f9f9f;
+    padding: 30px;
+}
+
+.title-profile-image{
+    padding-top: 20px;
+}
+
+.profile-name{
+    padding-right: 20px;
+}
+
+.font-black {
+    color: #000000;
+}
+
+.date-time{
+    padding-top: 5px;
+}
+
+.tailor-action{
+    padding-right: 20px;
+}
+
+.font-green01{
+    color: #5ca427;
+}
+
+.apply-order{
+    margin-right: 10px;
+}
+
+/*Modal*/
+.modal-dialog {
+    width: 1100px;
+    margin: 30px auto;
+}
+
+.modal-footer {
+    background-color: #f5f5f5;
+}
+
+.list-item{
+    background-color: #fafafa;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-bottom: 20px;
+}
+
+.subtitle{
+    padding: 15px 0px 15px 0px;
+    font-size: 16px;
+}
+
+.modal-dialog hr{
+    margin: 0px 0px 15px 0px;
+}
+
+.remark{
+    padding-top: 10px;
+}
+
+.intro-project-note{
+    padding-left: 15px;
+}
+
+.row.section-image{
+    margin-bottom: 50px;
+}

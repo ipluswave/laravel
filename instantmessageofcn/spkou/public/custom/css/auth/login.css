@@ -1,0 +1,14 @@
+.page-container{
+    background: url(/images/background.png) no-repeat;
+    background-size: 1400px 859px;
+}
+
+.panel.panel-default{
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 92%, #f5f5f5 92%, #f5f5f5 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(92%,#ffffff), color-stop(92%,#f5f5f5), color-stop(100%,#f5f5f5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 92%,#f5f5f5 92%,#f5f5f5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 0%,#ffffff 92%,#f5f5f5 92%,#f5f5f5 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%,#ffffff 92%,#f5f5f5 92%,#f5f5f5 100%); /* IE10+ */
+    background: linear-gradient(top, #ffffff 0%,#ffffff 92%,#f5f5f5 92%,#f5f5f5 100%); /* W3C */
+}

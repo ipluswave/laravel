@@ -1,0 +1,7 @@
+.input-icon > i.icon-sms {
+    height: 22px;
+    width: 21px;
+    display: inline-block;
+    background: url('/images/icons/members/sms.png') no-repeat;
+    margin-top: 6px;
+}

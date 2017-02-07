@@ -1,0 +1,32 @@
+[2016-05-23 01:20:56] local.ERROR: InvalidArgumentException: There are no commands defined in the "vendor" namespace. in D:\project\upwork\laravel\example\learninglocker-develop\vendor\symfony\console\Symfony\Component\Console\Application.php:516
+Stack trace:
+#0 D:\project\upwork\laravel\example\learninglocker-develop\vendor\symfony\console\Symfony\Component\Console\Application.php(550): Symfony\Component\Console\Application->findNamespace('vendor')
+#1 D:\project\upwork\laravel\example\learninglocker-develop\vendor\symfony\console\Symfony\Component\Console\Application.php(190): Symfony\Component\Console\Application->find('vendor:publish')
+#2 D:\project\upwork\laravel\example\learninglocker-develop\vendor\symfony\console\Symfony\Component\Console\Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\project\upwork\laravel\example\learninglocker-develop\artisan(59): Symfony\Component\Console\Application->run()
+#4 {main} [] []
+[2016-05-23 01:20:56] local.ERROR: InvalidArgumentException: There are no commands defined in the "vendor" namespace. in D:\project\upwork\laravel\example\learninglocker-develop\vendor\symfony\console\Symfony\Component\Console\Application.php:516
+Stack trace:
+#0 D:\project\upwork\laravel\example\learninglocker-develop\vendor\symfony\console\Symfony\Component\Console\Application.php(550): Symfony\Component\Console\Application->findNamespace('vendor')
+#1 D:\project\upwork\laravel\example\learninglocker-develop\vendor\symfony\console\Symfony\Component\Console\Application.php(190): Symfony\Component\Console\Application->find('vendor:publish')
+#2 D:\project\upwork\laravel\example\learninglocker-develop\vendor\symfony\console\Symfony\Component\Console\Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 D:\project\upwork\laravel\example\learninglocker-develop\artisan(59): Symfony\Component\Console\Application->run()
+#4 {main} [] []
+[2016-05-23 01:21:54] local.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Uncaught TypeError: Argument 1 passed to Illuminate\Exception\PlainDisplayer::display() must be an instance of Exception, instance of Error given, called in D:\project\upwork\laravel\example\learninglocker-develop\vendor\laravel\framework\src\Illuminate\Exception\Handler.php on line 280 and defined in D:\project\upwork\laravel\example\learninglocker-develop\vendor\laravel\framework\src\Illuminate\Exception\PlainDisplayer.php:15
+Stack trace:
+#0 D:\project\upwork\laravel\example\learninglocker-develop\vendor\laravel\framework\src\Illuminate\Exception\Handler.php(280): Illuminate\Exception\PlainDisplayer->display(Object(Error))
+#1 D:\project\upwork\laravel\example\learninglocker-develop\vendor\laravel\framework\src\Illuminate\Exception\Handler.php(159): Illuminate\Exception\Handler->displayException(Object(Error))
+#2 D:\project\upwork\laravel\example\learninglocker-develop\vendor\laravel\framework\src\Illuminate\Exception\Handler.php(170): Illuminate\Exception\Handler->handleException(Object(Error))
+#3 [internal in D:\project\upwork\laravel\example\learninglocker-develop\vendor\laravel\framework\src\Illuminate\Exception\PlainDisplayer.php:15
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2016-05-23 01:21:54] local.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Uncaught TypeError: Argument 1 passed to Illuminate\Exception\PlainDisplayer::display() must be an instance of Exception, instance of Error given, called in D:\project\upwork\laravel\example\learninglocker-develop\vendor\laravel\framework\src\Illuminate\Exception\Handler.php on line 280 and defined in D:\project\upwork\laravel\example\learninglocker-develop\vendor\laravel\framework\src\Illuminate\Exception\PlainDisplayer.php:15
+Stack trace:
+#0 D:\project\upwork\laravel\example\learninglocker-develop\vendor\laravel\framework\src\Illuminate\Exception\Handler.php(280): Illuminate\Exception\PlainDisplayer->display(Object(Error))
+#1 D:\project\upwork\laravel\example\learninglocker-develop\vendor\laravel\framework\src\Illuminate\Exception\Handler.php(159): Illuminate\Exception\Handler->displayException(Object(Error))
+#2 D:\project\upwork\laravel\example\learninglocker-develop\vendor\laravel\framework\src\Illuminate\Exception\Handler.php(170): Illuminate\Exception\Handler->handleException(Object(Error))
+#3 [internal in D:\project\upwork\laravel\example\learninglocker-develop\vendor\laravel\framework\src\Illuminate\Exception\PlainDisplayer.php:15
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []

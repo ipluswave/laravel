@@ -1,0 +1,251 @@
+/***
+Bootstrap Wizard
+***/
+
+.form-wizard .steps {
+    padding: 10px 0;
+    margin-bottom: 15px;
+    background-color: #fff;
+    background-image: none;
+    filter: none;
+    border: 0px;
+    box-shadow: none;
+}
+
+.form-wizard .steps > li > a.step {
+    background-color: #e5e5e5;
+    background-image: none;
+    filter: none;
+    border: 0px;
+    box-shadow: none;
+    height: 70px;
+}
+
+.form-wizard .steps > li > a.step:hover {
+    background: #26c281;
+}
+
+.form-wizard .steps > li > a.step > .number {
+    background-color: #fff;
+    color: #e5e5e5;
+    display: inline-block;
+    text-align: center !important;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 5px 15px 13px 15px;
+    margin-right: 10px;
+    height: 45px;
+    width: 45px;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+}
+
+.form-wizard .steps > li > a:hover .number{
+    color: #26c281;
+}
+
+.form-wizard .steps > li > a.step > .desc {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.form-wizard .steps > li > a.step > .desc > i {
+    display: none;
+}
+  
+.form-wizard .steps > li.active > a.step {
+    background-color: #26c281;
+    height: 70px;
+}
+
+.form-wizard .steps > li.active > a.step .number {
+    background-color: #fff;
+    color: #26c281;
+    font-weight: 700px;
+}
+
+.form-wizard .steps > li.active > a.step .desc {
+    color: #fff;
+}
+
+.form-wizard .steps > li > a.step .desc {
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.nav-justified > li > a{
+    text-align: left;
+}
+
+.form-wizard .steps > li.done > a.step .number {
+    background-color: #fff;
+    color: #e5e5e5;
+}
+
+.form-wizard .steps > li.done > a.step .desc {
+    color: #95a5a6;
+}
+
+.form-wizard .steps > li.done > a.step .desc i {
+    font-size: 24px;
+    font-weight: normal;
+    color: #fff;
+    display: inline-block;
+}
+
+.form-wizard .steps a{
+    color: #95a5a6;
+}
+
+#form_wizard_1{
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 92%, #f5f5f5 92%, #f5f5f5 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(92%,#ffffff), color-stop(92%,#f5f5f5), color-stop(100%,#f5f5f5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 92%,#f5f5f5 92%,#f5f5f5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 0%,#ffffff 92%,#f5f5f5 92%,#f5f5f5 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%,#ffffff 92%,#f5f5f5 92%,#f5f5f5 100%); /* IE10+ */
+    background: linear-gradient(top, #ffffff 0%,#ffffff 92%,#f5f5f5 92%,#f5f5f5 100%); /* W3C */
+}
+
+.page-content-wrapper .page-content{
+    margin-left: 0px;
+}
+
+.part-name{
+    padding-top: 10px;
+    color: #2698d8;
+    padding-left: 80px;
+}
+
+.switch-align{
+    padding-left: 30px;
+}
+
+.input-size{
+    width:40px;
+}
+
+.btm-line{
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+}
+
+.lbl-touchspin{
+    text-align: left !important;
+}
+
+.lbl-raw-material{
+    padding-top: 15px;
+}
+
+.btn.btn-gray{
+    background-color: #dae0e6;
+}
+
+.img-explain-align{
+    padding-left: 35px;
+}
+
+.column {
+    padding-top: 20px;
+    padding-left: 30px;
+}
+
+.list-item {
+    background-color: #fafafa;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-bottom: 20px;
+}
+
+.form-actions{
+    background-color: #f5f5f5 !important;
+}
+
+.lvl-cat-three{
+    padding-left: 15px;
+}
+
+/*Modal*/
+.modal-dialog {
+    margin: 30px auto;
+}
+
+.modal-footer {
+    background-color: #f5f5f5;
+}
+
+table, th, td {
+    border: 1px solid #eeeeee;
+}
+
+.sample-size{
+    padding-top: 8px;
+}
+
+.div-table-size {
+    padding: 15px;
+}
+
+.tbl-size a, .sample-size a{
+    text-decoration: none;
+}
+
+.tbl-size td {
+    padding: 10px 10px 10px 14px;
+}
+
+.tbl-size th {
+    padding: 10px 10px 10px 14px;
+}
+
+.tbl-size .last-row {
+    background-color: #f5f5f5;
+}
+
+.reference-size{
+    padding-top: 6px;
+}
+
+.input-refernce-size{
+    padding-left: 0px;
+}
+
+tr:hover{
+    background-color: #f5f5f5;
+}
+
+.reference-size a{
+    color: transparent;
+}
+
+.reference-size a:hover{
+    color: blue;
+}
+
+
+/*
+    tag
+*/
+
+.bootstrap-tagsinput{
+    border: 0px solid #ccc;
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0,0.075);
+    line-height: 42px;
+}
+
+.label{
+    font-size: 12px;
+    padding: 10px;
+}
+
+.page-content-wrapper .page-content{
+    padding: 0px;
+}
+
+.nav > li > a {
+    padding: 10px 5px;
+}

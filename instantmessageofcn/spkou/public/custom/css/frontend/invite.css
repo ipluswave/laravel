@@ -1,0 +1,21 @@
+.portlet.box.gray-color {
+    border: 1px solid #f7f7f7;
+    border-top: 0;
+}
+
+.portlet.gray-color{
+    background-color: #f5f5f5;
+}
+
+.portlet.box > .portlet-title{
+    color: #000000;
+}
+
+.control-label {
+    text-align: left!important;
+    padding-left: 40px;
+}
+
+.chk-detail, .tranfer{
+    padding-right: 40px;
+}

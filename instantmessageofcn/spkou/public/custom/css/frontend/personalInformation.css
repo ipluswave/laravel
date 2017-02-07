@@ -1,0 +1,10 @@
+.img-avatar{
+    display: inline-block;
+    vertical-align: middle;
+    height: 100px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    border-radius: 100%;
+}
