@@ -1,6 +1,7 @@
 @extends('front.template')
 
 @section('main')
+
 	<div class="home-search" id="home-search">
 		<div class="wrapper">
 			<div class="header-search">

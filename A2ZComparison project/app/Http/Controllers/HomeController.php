@@ -16,10 +16,12 @@ define('str_bestbuy','bestbuy');
 define('str_currentproduct','currentproduct');
 define('str_product_item_search','product_item_search');
 define('str_product_universial_item_search','product_universial_item_search');
+
 //=====================================category list=================================
 //template, prosperent, amazon, shopzilla,
 //$category_array_list = array(
 //array("computer&tablets","clothing & accessories","computer | laptop","computer | laptop"));
+
 ///====================================amazon functions===============================
 function getAmazonCurl($region, $category, $keyword) {
  
@@ -127,6 +129,7 @@ function aws_signed_request($region, $params) {
 	return $ch;
 	
 }
+
 //====================================prosperent functions===============================
 function getProsperentCurl($category, $keyword) {
 	$apikey = '274ab56313562fc993a85d25a957ae8e'; 
@@ -269,6 +272,7 @@ function converttonormal($product_list) {
 	else $temp->totalRecords = 0;
 	
 	$return[str_prosperent] = $temp;
+	
 	//============================================================
 	$temp = (object)[];
 	
@@ -308,6 +312,7 @@ function converttonormal($product_list) {
 		$temp->product = array();
 		$return[str_shopzilla] = $temp;
 	}
+	
 	//============================================================
 	$temp = (object)[];
 	
@@ -450,6 +455,7 @@ function converttoproductcomparison($product_list, $site) {
 		$temp->product = array();
 		$return[str_shopzilla] = $temp;
 	}
+	
 	//============================================================
 	$temp = (object)[];
 	
@@ -742,6 +748,7 @@ class HomeController extends Controller
 		
 		return view('front.product', compact('product','product_overallrating'));
 	}
+	
 	/**
 	 * Change language.
 	 *
