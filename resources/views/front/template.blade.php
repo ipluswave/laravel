@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
 	<head>
 
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>{{ trans('front/site.title') }}</title>
-		<meta name="keywords" content="A2Z Reviews - Product comparison & review" />
-		<meta name="description" content="A2Z Reviews - Product comparison & review">
+		<meta name="keywords" content="A2Z Reviews - Homepage" />
+		<meta name="description" content="A2Z Reviews - Homepage">
 		<meta name="author" content="sanchez.net">
 
 		<!-- Favicon -->
@@ -17,28 +21,29 @@
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		
-		
+		@yield('head')
+
 		<!-- Web Fonts  -->
-		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
-		<link href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,300italic,300,100italic,100,700,700italic,500italic" rel="stylesheet" type="text/css">
+		{!! HTML::style('http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light') !!}
+		{!! HTML::style('https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,300italic,300,100italic,100,700,700italic,500italic') !!}
 		<!-- Vendor CSS -->
-		<link rel="stylesheet" href="{!! asset('vendor/bootstrap/css/bootstrap.min.css') !!}">
-		<link rel="stylesheet" href="{!! asset('vendor/font-awesome/css/font-awesome.min.css') !!}">
-		<link rel="stylesheet" href="{!! asset('vendor/simple-line-icons/css/simple-line-icons.min.css') !!}">
-		<link rel="stylesheet" href="{!! asset('vendor/owl.carousel/assets/owl.carousel.min.css') !!}">
-		<link rel="stylesheet" href="{!! asset('vendor/owl.carousel/assets/owl.theme.default.min.css') !!}">
-		<link rel="stylesheet" href="{!! asset('vendor/magnific-popup/magnific-popup.min.css') !!}">
+		{!! HTML::style('vendor/bootstrap/css/bootstrap.min.css') !!}
+		{!! HTML::style('vendor/font-awesome/css/font-awesome.min.css') !!}
+		{!! HTML::style('vendor/simple-line-icons/css/simple-line-icons.min.css') !!}
+		{!! HTML::style('vendor/owl.carousel/assets/owl.carousel.min.css') !!}
+		{!! HTML::style('vendor/owl.carousel/assets/owl.theme.default.min.css') !!}
+		{!! HTML::style('vendor/magnific-popup/magnific-popup.min.css') !!}
 		<!-- Theme CSS -->
-		<link rel="stylesheet" href="{!! asset('css/theme.css') !!}">
-		<link rel="stylesheet" href="{!! asset('css/theme-elements.css') !!}">
-		<link rel="stylesheet" href="{!! asset('css/theme-blog.css') !!}">
-		<link rel="stylesheet" href="{!! asset('css/theme-shop.css') !!}">
-		<link rel="stylesheet" href="{!! asset('css/theme-animate.css') !!}">
+		{!! HTML::style('css/theme.css') !!}
+		{!! HTML::style('css/theme-elements.css') !!}
+		{!! HTML::style('css/theme-blog.css') !!}
+		{!! HTML::style('css/theme-shop.css') !!}
+		{!! HTML::style('css/theme-animate.css') !!}
 		<!-- Skin CSS -->
-		<link rel="stylesheet" href="{!! asset('css/skins/default.css') !!}">
+		{!! HTML::style('css/skins/default.css') !!}
 		
 		<!-- Theme Custom CSS -->
-		<link rel="stylesheet" href="{!! asset('css/custom.css') !!}">
+		{!! HTML::style('css/custom.css') !!}
 		
 		<!-- Head Libs -->
 		{!! HTML::script('vendor/modernizr/modernizr.min.js') !!}
@@ -690,7 +695,7 @@
 
 		<!-- Theme Initialization Files -->
 		{!! HTML::script('js/theme.init.js') !!}
-		
+
 		@yield('scripts')
 
   </body>

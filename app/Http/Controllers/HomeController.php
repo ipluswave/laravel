@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Jobs\ChangeLocale;
 
 define('max_product_list_count', 20);
-define('max_comparison_count', 10);
 define('max_review_count', 5);
 define('str_amazon','amazon');
 define('str_prosperent','prosperent');
@@ -17,10 +16,12 @@ define('str_bestbuy','bestbuy');
 define('str_currentproduct','currentproduct');
 define('str_product_item_search','product_item_search');
 define('str_product_universial_item_search','product_universial_item_search');
+
 //=====================================category list=================================
 //template, prosperent, amazon, shopzilla,
 //$category_array_list = array(
 //array("computer&tablets","clothing & accessories","computer | laptop","computer | laptop"));
+
 ///====================================amazon functions===============================
 function getAmazonCurl($region, $category, $keyword) {
  
@@ -128,6 +129,7 @@ function aws_signed_request($region, $params) {
 	return $ch;
 	
 }
+
 //====================================prosperent functions===============================
 function getProsperentCurl($category, $keyword) {
 	$apikey = '274ab56313562fc993a85d25a957ae8e'; 
@@ -251,68 +253,6 @@ function getShopzillaCurlForId($productId) {
 function getShopzillaCurlComparison($upc) {
 	return getShopzillaCurl(str_product_universial_item_search, $upc);
 }
-
-//====================================shopzilla functions===============================
-function getBestbuyCurl($category, $keyword) {
-	$apikey = "84u6rzhxeqf9qratdbwur4fw"; 
-	
-	$method = "GET";
-	$host = "http://api.bestbuy.com";
-	if($category == str_product_item_search) {
-		if(!empty($keyword))
-		{
-			$host = "http://api.remix.bestbuy.com";
-			$query="(sku=$keyword)";
-			$uri = "/v1/reviews".$query;
-			
-			$params["apiKey"] = $apikey;
-		}
-		else die;
-	}
-	else if ($category == str_product_universial_item_search) {
-		if(!empty($keyword))
-		{
-			$query="(upc=$keyword)";
-			$uri = "/v1/products".$query;
-			
-			$params["apiKey"] = $apikey;
-			//$params["show"] = "sku,upc,name,customerReviewAverage,customerReviewCount";
-			$params["show"] = "all";
-		}
-		else die;
-	}
-	else {
-	}
-
-	$params["format"] = 'json';
-
-	$canonicalized_query = array();
-	foreach ($params as $param => $value) {
-		$param = str_replace("%7E", "~", rawurlencode($param));
-		$value = str_replace("%7E", "~", rawurlencode($value));
-		$canonicalized_query[] = $param . "=" . $value;
-	}
-	
-	$canonicalized_query = implode("&", $canonicalized_query);
-
-	$request = $host . $uri . "?" . $canonicalized_query;
-	
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL,$request);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_TIMEOUT, 15);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-	
-	return $ch;
-}
-
-function getBestbuyCurlForId($productId) {
-	return getBestbuyCurl(str_product_item_search, $productId);
-}
-
-function getBestbuyCurlComparison($upc) {
-	return getBestbuyCurl(str_product_universial_item_search, $upc);
-}
 //====================================bestbuy functions=================================
 //====================================cnet functions====================================
 
@@ -332,6 +272,7 @@ function converttonormal($product_list) {
 	else $temp->totalRecords = 0;
 	
 	$return[str_prosperent] = $temp;
+	
 	//============================================================
 	$temp = (object)[];
 	
@@ -371,6 +312,7 @@ function converttonormal($product_list) {
 		$temp->product = array();
 		$return[str_shopzilla] = $temp;
 	}
+	
 	//============================================================
 	$temp = (object)[];
 	
@@ -425,7 +367,7 @@ function getProductListResult($curl) {
 	
 	$product_list[str_amazon] = @simplexml_load_string($output[str_amazon]);;
 	
-	//$product_list[$key] = $return;
+	$product_list[$key] = $return;
 	$return = (object)[];
 	$return->totalRecords = 0;
 	$return->product = array();
@@ -460,52 +402,26 @@ function getProductListResult($curl) {
 
 function converttoproductcomparison($product_list, $site) {
 	$return = array();
+	$temp = (object)[];
 	
 	if(!empty($product_list[str_prosperent]->data))
+		$temp->product = $product_list[str_prosperent]->data;
+	else $temp->product = array();
+	
+	if(!empty($product_list[str_prosperent]->data->brand))
+		$temp->brand = $product_list[str_prosperent]->data->brand;
+	else $temp->brand = "";
+	
+	if(!empty($product_list[str_prosperent]->data[0]->brand))
 	{
-		$return[str_prosperent] = array();
-		
-		//var_dump($product_list[str_prosperent]->data);
-		//die;
-		foreach($product_list[str_prosperent]->data as $product)
-		{
-			$temp = (object)[];
-			
-			if(!empty($product->brand))
-				$temp->brand = $product->brand;
-			else $temp->brand = "";
-			
-			if(!empty($product->upc))
-				$temp->upc = $product->upc;
-			else continue;
-				
-			$temp->title = $product->merchant;
-			$temp->merchant = $product->merchant;
-			$temp->image_url = $product->image_url;
-			$temp->overallrating = 5;
-			$temp->description = $product->description;
-			$temp->shipType = 'Free shipping';
-			$temp->price = '$'.$product->price;
-			$temp->tax_price = 0;
-			$temp->url = $product->affiliate_url;
-			$temp->dropped_percent = $product->percentOff;
-			$temp->catalogId = $product->catalogId;
-			
-			$return[str_prosperent][] = $temp;
-		}
+		$return[str_prosperent] = $product_list[str_prosperent]->data[0];
+		$return[str_prosperent]->title = $return[str_prosperent]->brand;
+		$return[str_prosperent]->overallrating = 5;
 	}
-	else {
-		$return[str_prosperent] = '';
-	}
-	
-	
-	//var_dump($return[str_prosperent]);
-	//die;
 	//============================================================
+	$temp = (object)[];
 	if(!empty($product_list[str_shopzilla]))
 	{
-		$return[str_shopzilla] = array();
-		
 		foreach($product_list[str_shopzilla]->offers->offer as $product) {
 			$t = (object)[];
 			
@@ -513,17 +429,12 @@ function converttoproductcomparison($product_list, $site) {
 				$t->brand = $product->brand->name;
 			else $t->brand = "";
 			
-			if(!empty($product->upc))
-				$t->upc = $product->upc;
-			else continue;
-				
 			$t->title = $product->title;
-			$t->merchant = $product->merchantName;
 			$t->image_url = $product->images->image[3]->value;
 			$t->overallrating = min($product->price->integral/5000, 5);
 			$t->description = $product->description;
 			$t->shipType = $product->shipType;
-			$t->price = $product->price->value;
+			$t->price = $product->price;
 			$t->tax_price = 0;
 			$t->url = $product->url->value;
 			$t->dropped_percent = $product->markdownPercent;
@@ -533,131 +444,64 @@ function converttoproductcomparison($product_list, $site) {
 			else if(!empty($product->skus)) $t->catalogId = $product->skus->sku[0];
 			else continue;
 			
-			$return[str_shopzilla][] = $t;
+			$temp = $t;
 		}
 
 		
+		$return[str_shopzilla] = $temp;
 	}
 	else {
-		//$temp->totalRecords =0;
-		//$temp->product = array();
-		$return[str_shopzilla] = '';
+		$temp->totalRecords =0;
+		$temp->product = array();
+		$return[str_shopzilla] = $temp;
 	}
 	
 	//============================================================
+	$temp = (object)[];
+	
 	if(!empty($product_list[str_amazon]->Items->Item))
 	{
-		//var_dump($product_list[str_amazon]->Items->Item);
-		//die;
-		$return[str_amazon] = array();
+		$temp->totalRecords = $product_list[str_amazon]->Items->TotalResults;
+		$temp->product = array();
 		
-		foreach($product_list[str_amazon]->Items->Item as $product) {
-			$t = (object)[];
-			
-			if(!empty($product->ItemAttributes->Brand))
-				$t->brand = $product->ItemAttributes->Brand;
-			else $t->brand = "";
-			
-			$t->title = $product->ItemAttributes->Title;
-			
-				
-			if(!empty($product->ItemAttributes->UPC ))
-				$t->upc = (string)$product->ItemAttributes->UPC;
-			else continue;
-			
-			$t->catalogId = $product->ASIN;
-			//var_dump($product);
-			//die;
-			$t->merchant = $product->ItemAttributes->Studio;
-			
-			//var_dump($t->merchant);
-			
-			if(empty($t->merchant))
-				$t->merchant = $t->brand;
-			
-			$t->image_url = $product->LargeImage->URL;
-			$t->overallrating = min($product->SalesRank/1000, 5);
-			//$t->description = $product->EditorialReviews->EditorialReview->Content;
-			$t->shipType = "Free shipping";
-			$t->price = $product->OfferSummary->LowestNewPrice->FormattedPrice;
-			$t->tax_price = 0;
-			$t->url = $product->DetailPageURL;
-			if(!empty($product->OfferSummary->LowestUsedPrice->Amount))
-				$t->dropped_percent = max(($product->OfferSummary->LowestUsedPrice->Amount-$product->OfferSummary->LowestNewPrice->Amount)/$product->OfferSummary->LowestUsedPrice->Amount*100.00, 0);
-			else $t->dropped_percent = "";
-			
-			if($t->dropped_percent < 0)
-				$t->dropped_percent = 0;
-			
-			if(!empty($product->EditorialReviews->EditorialReview->Content))
-				$t->description = $product->EditorialReviews->EditorialReview->Content;
-			else $t->description = "";
-			
-			$t->image_url = $product->LargeImage->URL;
-			
-			$return[str_amazon][] = $t;
-		}
-	}
-	else {
-		//$temp->totalRecords =0;
-		//$temp->product = array();
-		$return[str_amazon] = '';
+		$product = $product_list[str_amazon]->Items->Item;
+		
+		if(!empty($product->ItemAttributes->Brand))
+			$temp->brand = $product->ItemAttributes->Brand;
+		else $temp->brand = "";
+		
+		$temp->title = $product->ItemAttributes->Title;
+		$temp->image_url = $product->LargeImage->URL;
+		$temp->overallrating = min($product->SalesRank/1000, 5);
+		$temp->description = $product->ItemAttributes->Warranty;
+		$temp->shipType = "";
+		$temp->price = $product->OfferSummary->LowestNewPrice->FormattedPrice;
+		$temp->tax_price = 0;
+		$temp->url = $product->ItemLinks->ItemLink[3]->URL;
+		if(!empty($product->OfferSummary->LowestUsedPrice->Amount))
+			$temp->dropped_percent = min(($product->OfferSummary->LowestNewPrice->Amount-$product->OfferSummary->LowestUsedPrice->Amount)/$product->OfferSummary->LowestUsedPrice->Amount*100.00, 100);
+		else $temp->dropped_percent = "";
+		
+		if($temp->dropped_percent < 0)
+			$temp->dropped_percent = 0;
+		$temp->comment = $product->EditorialReviews->EditorialReview->Content;
+		$temp->image_url = $product->LargeImage->URL;
+		
+		$return[str_amazon] = $temp;
+	
 	}
 	
-	//var_dump($product_list[str_amazon]);
-	//die;
-	
-	return $return;
-}
-
-function converttoproductreview($product_list) {
-	//============================================================
-	//var_dump($product_list[str_bestbuy]);
-	//die;
-	if(!empty($product_list[str_bestbuy]->products))
-	{
-		//var_dump($product_list[str_bestbuy]);
-		//die;
-		//var_dump($product_list[str_bestbuy]->total);
-		//foreach($product_list[str_bestbuy]->products as $product) 
-		$product = $product_list[str_bestbuy]->products[0];
-		{
-			$t = (object)[];
-			
-			$t->sku = $product->sku;
-			$t->customerReviewAverage = $product->customerReviewAverage;
-			$t->customerReviewCount = $product->customerReviewCount;
-			
-			$ch = getBestbuyCurlForId($t->sku);
-			$output = curl_exec($ch); 
-			$info = curl_getinfo($ch);
-			curl_close($ch); 
-			
-			$temp = json_decode( $output )->reviews;
-			$t->review_array = array();
-			$count = 0;
-			
-			foreach($temp as $item) {
-				if($count >= max_review_count)
-					continue;
-				
-				$count++;
-				$t->review_array[] = $item;
-			}
-			//var_dump($t);
-			//die;
-			$return = $t;
-		}
-	}
 	else {
-		$return[str_bestbuy] = '';
+		$temp->totalRecords =0;
+		$temp->product = array();
+		$return[str_amazon] = $temp;
 	}
 	
 	return $return;
 }
 
 function getProductListResultComparison($curl, $site) {
-	$json_format_list = array(str_prosperent,str_shopzilla,str_bestbuy);
+	$json_format_list = array(str_prosperent,str_shopzilla);
 	
 	foreach($curl as $key => $ch) {
 		$output[$key]  = curl_multi_getcontent($ch);
@@ -671,49 +515,46 @@ function getProductListResultComparison($curl, $site) {
 	}
 	
 	$product_list[str_amazon] = @simplexml_load_string($output[str_amazon]);;
+	
+	$product_list[$key] = $return;
 	$return = (object)[];
 	$return->totalRecords = 0;
 	$return->price_comparison_list = array();
 	$return->review_list = array();
 	$return->product = (object)[];
 	$result = converttoproductcomparison($product_list, $site);
-	$review_list = converttoproductreview($product_list);
 	
-	if(!empty($result[$site][0]->brand))
+	if(!empty($result[$site]->brand))
 	{
-		$temp = $result[$site][0];
-		$return->product->brand = $temp->brand;
-		$return->product->title = $temp->title;
-		if(!empty($review_list->customerReviewAverage))
-			$return->product->overallrating = $review_list->customerReviewAverage;
-		else $return->product->overallrating = '0.0';
-		$return->product->image_url = $temp->image_url;
-		$return->product->description = $temp->description;
+		
+		$return->product->brand = $result[$site]->brand;
+		$return->product->title = $result[$site]->title;
+		$return->product->overallrating = $result[$site]->overallrating;
+		$return->product->image_url = $result[$site]->image_url;
+		$return->product->description = $result[$site]->description;
 	}
 	else die;
 	
-	$price_comparison_count =0;
-	foreach($result as $product_info_key => $parray)
+	foreach($result as $product_info_key => $product)
 	{
-		if(!empty($parray))
+		if(!empty($product))
 		{
-			foreach($parray as $product)
-			{
-				if($price_comparison_count >= max_comparison_count)
-					continue;
-				
-				$product->dropped_percent = ((integer)($product->dropped_percent*100))/100;
-				
-				$return->price_comparison_list[] = $product;
-				$price_comparison_count++;
-			}
+			if(empty($product->brand))
+				continue;
+			
+			$return->price_comparison_list[] = $product;
+		}
+	}
+	foreach($result as $product_info_key => $products_info)
+	{
+		if(!empty($product))
+		{
+			if(empty($product->brand))
+				continue;
+			$return->review_list[] = $product;
 		}
 	}
 	
-	//var_dump($return->price_comparison_list);
-	if(!empty($review_list->review_array))
-		$return->review_list = $review_list->review_array;
-	else $return ->review_list = NULL;
 	return $return;
 }
 
@@ -809,8 +650,6 @@ class HomeController extends Controller
 		$curl[str_amazon] = getAmazonCurlComparison($upc);
 		//=============================shopzilla============================
 		$curl[str_shopzilla] = getShopzillaCurlComparison($upc);
-		//=============================shopzilla============================
-		$curl[str_bestbuy] = getBestbuyCurlComparison($upc);
 		
 		//=============================amazon============================
 		//=============================amazon============================
@@ -843,7 +682,7 @@ class HomeController extends Controller
 		$product = $return->product;
 		$price_comparison_list = $return->price_comparison_list;
 		$review_list = $return->review_list;		
-		return view('front.product', compact('product', 'review_list', 'price_comparison_list'));
+		return view('front.product', compact('product', 'price_comparison', 'review'));
 	}
 	
 	public function product_old($site = NULL, $productId = NULL)
@@ -909,6 +748,7 @@ class HomeController extends Controller
 		
 		return view('front.product', compact('product','product_overallrating'));
 	}
+	
 	/**
 	 * Change language.
 	 *
